@@ -10,8 +10,8 @@ android {
     defaultConfig {
         minSdkVersion config.minSdkVersion
         targetSdkVersion config.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode Integer.parseInt(VERSION_CODE)
+        versionName VERSION_NAME
     }
 
     buildTypes {
@@ -36,3 +36,5 @@ dependencies {
     compile dependencies.supportV4
     compile dependencies.supportDesign
 }
+
+apply from: '../mvn-push.gradle'
