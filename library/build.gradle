@@ -29,12 +29,12 @@ android {
 }
 
 dependencies {
-    Map<String, String> dependencies = rootProject.ext.dependencies;
 
-    compile dependencies.kotlin
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-    compile dependencies.supportV4
-    compile dependencies.supportDesign
+    def supportLibraryVersion = '25.2.0'
+    provided "com.android.support:support-v4:$supportLibraryVersion"
+    provided "com.android.support:design:$supportLibraryVersion"
 }
 
 apply from: '../mvn-push.gradle'
