@@ -1,14 +1,10 @@
-package com.github.hkokocin.atheris.android.support.v4.app
+package com.github.hkokocin.androidkit.app
 
 import android.app.Activity
+import android.app.Fragment
 import android.content.Intent
 import android.content.res.Resources
-import android.support.v4.app.Fragment
-import com.github.hkokocin.atheris.android.app.getExtra
-import com.github.hkokocin.atheris.android.app.getResource
-import com.github.hkokocin.atheris.android.app.start
-import com.github.hkokocin.atheris.android.app.startForResult
-import com.github.hkokocin.atheris.android.content.getColorInt
+import com.github.hkokocin.androidkit.content.getColorInt
 
 // ==============================================================================
 // resources

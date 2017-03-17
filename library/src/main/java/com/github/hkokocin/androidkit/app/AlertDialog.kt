@@ -1,4 +1,4 @@
-package com.github.hkokocin.atheris.android.app
+package com.github.hkokocin.androidkit.app
 
 import android.app.AlertDialog
 import android.content.DialogInterface

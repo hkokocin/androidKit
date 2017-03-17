@@ -1,11 +1,11 @@
-package com.github.hkokocin.atheris.android.app
+package com.github.hkokocin.androidkit.app
 
 import android.app.Activity
 import android.content.Intent
 import android.content.res.Resources
 import android.graphics.drawable.Drawable
 import android.view.View
-import com.github.hkokocin.atheris.android.content.getColorInt
+import com.github.hkokocin.androidkit.content.getColorInt
 import java.io.Serializable
 import kotlin.reflect.KClass
 

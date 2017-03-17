@@ -1,4 +1,4 @@
-package com.github.hkokocin.atheris.android.widget
+package com.github.hkokocin.androidkit.widget
 
 import android.text.Editable
 import android.text.TextWatcher
