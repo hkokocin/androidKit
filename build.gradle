@@ -13,7 +13,7 @@ buildscript {
 apply from: 'dependencies.gradle'
 
 ext {
-    buildToolsVersion = "25.0.0"
+    buildToolsVersion = "25.0.2"
     minSdkVersion = 21
     targetSdkVersion = 25
 }
