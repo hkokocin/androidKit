@@ -10,8 +10,6 @@ buildscript {
     }
 }
 
-apply from: 'dependencies.gradle'
-
 ext {
     buildToolsVersion = "25.0.2"
     minSdkVersion = 21
