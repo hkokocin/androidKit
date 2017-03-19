@@ -79,5 +79,3 @@ inline fun <reified T : Activity> Activity.startForResult(requestCode: Int, noin
     intent.init()
     startActivityForResult(intent, requestCode)
 }
-
-
