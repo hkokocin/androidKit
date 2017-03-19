@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/hkokocin/androidKit.svg?branch=master)](https://travis-ci.org/hkokocin/androidKit)
+
 AndroidKit is a small kotlin toolkit for android development. It is not intended to replace other libraries like Anko and the like which already are very powerful. But most of the time you only use a small potion of libraries like these. That is why this project focuses on a very specific approach to android app development. More on this approach later. Until then just have a quick look on what androidKit has to offer.
 
 # Usage
