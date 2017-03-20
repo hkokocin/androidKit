@@ -1,4 +1,4 @@
-package com.github.hkokocin.atheris.android.content
+package com.github.hkokocin.androidkit.content
 
 import android.content.SharedPreferences
 

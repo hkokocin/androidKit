@@ -1,4 +1,4 @@
-package com.github.hkokocin.atheris.android.view
+package com.github.hkokocin.androidkit.view
 
 import android.support.design.widget.Snackbar
 import android.view.MotionEvent
