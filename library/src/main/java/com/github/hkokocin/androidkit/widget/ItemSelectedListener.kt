@@ -2,8 +2,6 @@ package com.github.hkokocin.androidkit.widget
 
 import android.view.View
 import android.widget.AdapterView
-import android.widget.Spinner
-import com.github.hkokocin.androidkit.kit
 
 class ItemSelectedListener<T>(
         private val adapterView: AdapterView<*>,

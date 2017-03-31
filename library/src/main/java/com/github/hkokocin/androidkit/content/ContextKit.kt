@@ -11,7 +11,7 @@ import android.net.ConnectivityManager
 import android.util.DisplayMetrics
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
-import com.github.hkokocin.androidkit.kit
+import com.github.hkokocin.androidkit.AndroidKit
 
 val Context.windowManager: WindowManager
     get() = AndroidKit.instance.getWindowManager(this)

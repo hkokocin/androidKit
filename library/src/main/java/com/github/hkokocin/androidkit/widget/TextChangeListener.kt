@@ -2,9 +2,6 @@ package com.github.hkokocin.androidkit.widget
 
 import android.text.Editable
 import android.text.TextWatcher
-import android.widget.EditText
-import com.github.hkokocin.androidkit.AndroidKit
-import com.github.hkokocin.androidkit.kit
 
 class TextChangeListener(
         private val onChanged: (String) -> Unit = {},

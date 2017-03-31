@@ -2,7 +2,7 @@ package com.github.hkokocin.androidkit.widget
 
 import android.widget.EditText
 import android.widget.Spinner
-import com.github.hkokocin.androidkit.kit
+import com.github.hkokocin.androidkit.AndroidKit
 
 fun <T> Spinner.onItemSelected(callback: (item: T) -> Unit) = AndroidKit.instance.onItemSelected(this, callback)
 

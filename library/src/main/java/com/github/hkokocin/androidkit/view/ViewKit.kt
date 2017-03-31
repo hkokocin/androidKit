@@ -3,7 +3,7 @@ package com.github.hkokocin.androidkit.view
 import android.support.design.widget.Snackbar
 import android.view.MotionEvent
 import android.view.View
-import com.github.hkokocin.androidkit.kit
+import com.github.hkokocin.androidkit.AndroidKit
 
 fun View.snackbar(message: CharSequence, duration: Int = Snackbar.LENGTH_LONG, init: Snackbar.() -> Unit = {}) {
     return AndroidKit.instance.snackbar(this, message, duration, init)
@@ -15,7 +15,7 @@ fun View.snackbar(messageId: Int, duration: Int = Snackbar.LENGTH_LONG, init: Sn
 
 fun View.onClick(listener: (View) -> Unit) = AndroidKit.instance.onClick(this, listener)
 
-fun View.onLongClick(callback: (View) -> Boolean)  = AndroidKit.instance.onLongClick(this, callback)
+fun View.onLongClick(callback: (View) -> Boolean) = AndroidKit.instance.onLongClick(this, callback)
 
 fun View.onTouch(callback: (View, MotionEvent) -> Boolean) = AndroidKit.instance.onTouch(this, callback)
 
