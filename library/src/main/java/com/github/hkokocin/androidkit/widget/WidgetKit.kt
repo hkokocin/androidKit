@@ -4,9 +4,9 @@ import android.widget.EditText
 import android.widget.Spinner
 import com.github.hkokocin.androidkit.kit
 
-fun <T> Spinner.onItemSelected(callback: (item: T) -> Unit) = kit.onItemSelected(this, callback)
+fun <T> Spinner.onItemSelected(callback: (item: T) -> Unit) = AndroidKit.instance.onItemSelected(this, callback)
 
-fun EditText.onTextChange(callback: (String) -> Unit) = kit.onTextChange(this, callback)
+fun EditText.onTextChange(callback: (String) -> Unit) = AndroidKit.instance.onTextChange(this, callback)
 
 interface WidgetKit {
     fun onTextChange(editText: EditText, callback: (String) -> Unit) {

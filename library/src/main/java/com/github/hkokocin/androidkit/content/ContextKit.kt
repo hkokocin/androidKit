@@ -14,29 +14,29 @@ import android.view.inputmethod.InputMethodManager
 import com.github.hkokocin.androidkit.kit
 
 val Context.windowManager: WindowManager
-    get() = kit.getWindowManager(this)
+    get() = AndroidKit.instance.getWindowManager(this)
 
 val Context.inputMethodManager: InputMethodManager
-    get() = kit.getInputMethodManager(this)
+    get() = AndroidKit.instance.getInputMethodManager(this)
 
 val Context.alarmManager: AlarmManager
-    get() = kit.getAlarmManager(this)
+    get() = AndroidKit.instance.getAlarmManager(this)
 
 val Context.connectivityManager: ConnectivityManager
-    get() = kit.getConnectivityManager(this)
+    get() = AndroidKit.instance.getConnectivityManager(this)
 
 val Context.locationManager: LocationManager
-    get() = kit.getLocationManager(this)
+    get() = AndroidKit.instance.getLocationManager(this)
 
 val Context.clipboardManager: ClipboardManager
-    get() = kit.getClipboardManager(this)
+    get() = AndroidKit.instance.getClipboardManager(this)
 
 val Context.displayMetrics: DisplayMetrics
-    get() = kit.getDisplayMetrics(this)
+    get() = AndroidKit.instance.getDisplayMetrics(this)
 
-fun Context.alertDialog(init: AlertDialog.Builder.() -> Unit) = kit.alertDialog(this, init)
+fun Context.alertDialog(init: AlertDialog.Builder.() -> Unit) = AndroidKit.instance.alertDialog(this, init)
 
-fun Context.toActivity() = kit.toActivity(this)
+fun Context.toActivity() = AndroidKit.instance.toActivity(this)
 
 
 interface ContextKit {
