@@ -3,18 +3,8 @@ package com.github.hkokocin.androidkit.widget
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
-
-fun EditText.textChange(callback: (String) -> Unit) {
-    addTextChangedListener(TextChangeListener(onChanged = { callback(it) }))
-}
-
-fun EditText.beforeTextChange(callback: () -> Unit) {
-    addTextChangedListener(TextChangeListener(beforeChanged = { callback() }))
-}
-
-fun EditText.afterTextChange(callback: (String) -> Unit) {
-    addTextChangedListener(TextChangeListener(afterChanged = { callback(it) }))
-}
+import com.github.hkokocin.androidkit.AndroidKit
+import com.github.hkokocin.androidkit.kit
 
 class TextChangeListener(
         private val onChanged: (String) -> Unit = {},
