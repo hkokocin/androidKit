@@ -13,31 +13,7 @@ import kotlin.reflect.KClass
 // resources
 // ==============================================================================
 
-@Suppress("UNCHECKED_CAST")
-fun <T : View> Activity.viewId(resourcesId: Int) = lazy { findViewById(resourcesId) as T }
 
-inline fun <reified T : Any> Activity.extra(name: String) = lazy { getExtra(T::class, name, intent) }
-inline fun <reified T : Any> Activity.extra(name: String, default: T) = lazy {
-    getExtra(T::class,
-            name,
-            intent) ?: default
-}
-
-inline fun <reified T : Any> Activity.resource(resourcesId: Int) = lazy {
-    getResource(resources,
-            resourcesId,
-            T::class)
-}
-
-@Suppress("UNCHECKED_CAST")
-fun Activity.colorResource(resourcesId: Int) = lazy {
-    resources.getColorInt(resourcesId)
-}
-
-@Suppress("UNCHECKED_CAST")
-fun Activity.dimensionInPixels(resourcesId: Int) = lazy {
-    resources.getDimensionPixelSize(resourcesId)
-}
 // ------------------------------------------------------------------------------
 // helpers
 // ------------------------------------------------------------------------------
@@ -68,14 +44,3 @@ fun <T : Any> getResource(resources: Resources, resourceId: Int, type: KClass<T>
 // intents
 // ==============================================================================
 
-inline fun <reified T : Activity> Activity.start(noinline init: Intent.() -> Unit = {}) {
-    val intent = Intent(this, T::class.java)
-    intent.init()
-    startActivity(intent)
-}
-
-inline fun <reified T : Activity> Activity.startForResult(requestCode: Int, noinline init: Intent.() -> Unit = {}) {
-    val intent = Intent(this, T::class.java)
-    intent.init()
-    startActivityForResult(intent, requestCode)
-}
