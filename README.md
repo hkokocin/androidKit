@@ -1,15 +1,37 @@
 [![Build Status](https://travis-ci.org/hkokocin/androidKit.svg?branch=master)](https://travis-ci.org/hkokocin/androidKit)
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.hkokocin.atheris/androidkit.svg)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.github.hkokocin.atheris%22%20AND%20a%3A%androidkit%22)
 
+# AndroidKit
+
 AndroidKit is a small kotlin toolkit for android development. It is not intended to replace other libraries like Anko and the like which already are very powerful. But most of the time you only use a small potion of libraries like these. That is why this project focuses on a very specific approach to android app development. More on this approach later. Until then just have a quick look on what androidKit has to offer.
 
-# Usage
+## Installation
 
-## Set up your Activities and Fragments
+```groovy
+dependencies{
+    compile 'com.github.hkokocin.atheris:AndroidKit:0.3'
+}
+```
+
+### Snaphot
+
+```groovy
+repositories{
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+
+dependencies{
+    compile ('com.github.hkokocin.atheris:AndroidKit:0.4-SNAPSHOT') { changing = true }
+}
+```
+
+## Usage
+
+### Set up your Activities and Fragments
 
 The following works in Activities as well as in Fragments and their support library versions. Note that if you want to use e.g. the support Fragment you have to explicitely import the support library into your project.
 
-### Retrieve Views
+#### Retrieve Views
 ```kotlin
 class MainActivity : Activity(){
     private val textView: TextView by viewId(R.id.tv_name)
@@ -17,7 +39,7 @@ class MainActivity : Activity(){
 }
 ```
 
-### Get resources
+#### Get resources
 ```kotlin
 class MainActivity : Activity() {
     private val name: String by resource(R.string.name)
@@ -42,7 +64,7 @@ class MainActivity : Activity() {
 }
 ```
 
-### Retrieve extras
+#### Retrieve extras
 This works for Activities only
 ```kotlin
 class MainActivity : Activity() {
@@ -61,7 +83,7 @@ Supported types are:
 
 Parcelables are currently not supported since I think you should avoid the overhead that comes with using them. Instead I prefer to pass ids and fetch the complete data from the data layer.
 
-### Start activities
+#### Start activities
 This can again be used in Activites as well as Fragments
 ```kotlin
 start<CategoryDetailActivity>()
@@ -73,9 +95,9 @@ start<CategoryDetailActivity> {
 }
 ```
 
-## Context extensions
+### Context extensions
 
-### AlertDialogs
+#### AlertDialogs
 
 ```kotlin
 context.alertDialog {
@@ -85,16 +107,16 @@ context.alertDialog {
 }
 ```
 
-### System services
+#### System services
 
 ```kotlin
 context.windowManager
 context.inputMethodManager
 ```
 
-## View extensions
+### View extensions
 
-### Snackbars
+#### Snackbars
 
 Create snackbars from any view.
 
@@ -108,7 +130,7 @@ view.snackbar("message"){
 }
 ```
 
-## Events
+### Events
 
 
 ```kotlin
