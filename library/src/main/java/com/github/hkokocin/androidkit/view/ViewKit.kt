@@ -10,7 +10,7 @@ fun View.snackbar(message: CharSequence, duration: Int = Snackbar.LENGTH_LONG, i
 }
 
 fun View.snackbar(messageId: Int, duration: Int = Snackbar.LENGTH_LONG, init: Snackbar.() -> Unit = {}) {
-    return AndroidKit.instance.snackbar(this, resources.getString(messageId), duration, init)
+    return AndroidKit.instance.snackbar(this, messageId, duration, init)
 }
 
 fun View.onClick(listener: (View) -> Unit) = AndroidKit.instance.onClick(this, listener)
