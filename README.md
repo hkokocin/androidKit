@@ -49,9 +49,9 @@ class MainActivity : Activity() {
 
 Supported types are:
 * String
-* Array<String>
+* Array\<String\>
 * Int
-* Array<Int>
+* Array\<Int\>
 * Boolean
 * Drawable
 
