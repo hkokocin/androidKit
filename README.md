@@ -74,14 +74,7 @@ class MainActivity : Activity() {
 }
 ```
 
-Supported types are:
-* String
-* Array<String>
-* Int
-* Long
-* Boolean
-
-Parcelables are currently not supported since I think you should avoid the overhead that comes with using them. Instead I prefer to pass ids and fetch the complete data from the data layer.
+Supported are all possible extra types except Parcelables. They are currently not supported since I think you should avoid the overhead that comes with using them. Instead I prefer to pass ids and fetch the complete data from the data layer.
 
 #### Start activities
 This can again be used in Activites as well as Fragments
