@@ -50,8 +50,8 @@ class MainActivity : Activity() {
 Supported types are:
 * String
 * Array\<String\>
-* Charsequence
-* Array\<Charsequence\>
+* CharSequence
+* Array\<CharSequence\>
 * Int
 * Array\<Int\>
 * Boolean
