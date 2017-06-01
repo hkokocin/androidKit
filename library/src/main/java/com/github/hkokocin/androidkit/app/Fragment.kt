@@ -4,30 +4,28 @@ import android.app.Activity
 import android.app.Fragment
 import android.content.Intent
 import android.content.res.Resources
-import com.github.hkokocin.androidkit.content.getColorInt
+import com.github.hkokocin.androidkit.AndroidKit
 
 // ==============================================================================
 // resources
 // ==============================================================================
 
 inline fun <reified T : Any> Fragment.extra(name: String, default: T) = lazy {
-    getExtra(T::class, name, activity.intent) ?: default
+    AndroidKit.instance.getExtra(activity.intent, name, T::class) ?: default
 }
 
 inline fun <reified T : Any> Fragment.resource(resourcesId: Int) = lazy {
-    getResource(resources,
-            resourcesId,
-            T::class)
+    AndroidKit.instance.getResource(resources, resourcesId, T::class)
 }
 
 @Suppress("UNCHECKED_CAST")
 fun Fragment.colorResource(resourcesId: Int, theme: Resources.Theme? = null) = lazy {
-    resources.getColorInt(resourcesId, theme)
+    AndroidKit.instance.getColorInt(resources, resourcesId, theme)
 }
 
 @Suppress("UNCHECKED_CAST")
 fun Fragment.dimensionInPixels(resourcesId: Int) = lazy {
-    resources.getDimensionPixelSize(resourcesId)
+    AndroidKit.instance.dimensionInPixels(resources, resourcesId)
 }
 
 // ==============================================================================
@@ -35,9 +33,9 @@ fun Fragment.dimensionInPixels(resourcesId: Int) = lazy {
 // ==============================================================================
 
 inline fun <reified T : Activity> Fragment.start(noinline init: Intent.() -> Unit = {}) {
-    activity.start<T>(init)
+    AndroidKit.instance.start(activity, T::class, init)
 }
 
 inline fun <reified T : Activity> Fragment.startForResult(requestCode: Int, noinline init: Intent.() -> Unit = {}) {
-    activity.startForResult<T>(requestCode, init)
+    AndroidKit.instance.startForResult(activity, T::class, requestCode, init)
 }

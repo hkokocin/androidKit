@@ -15,21 +15,17 @@ import com.github.hkokocin.androidkit.content.getColorInt
 // ==============================================================================
 
 inline fun <reified T : Any> Fragment.extra(name: String, default: T) = lazy {
-    getExtra(T::class, name, activity.intent) ?: default
+    getExtra(activity.intent, name, T::class) ?: default
 }
 
 inline fun <reified T : Any> Fragment.resource(resourcesId: Int) = lazy {
-    getResource(resources,
-            resourcesId,
-            T::class)
+    getResource(resources, resourcesId, T::class)
 }
 
-@Suppress("UNCHECKED_CAST")
 fun Fragment.colorResource(resourcesId: Int, theme: Resources.Theme? = null) = lazy {
     resources.getColorInt(resourcesId, theme)
 }
 
-@Suppress("UNCHECKED_CAST")
 fun Fragment.dimensionInPixels(resourcesId: Int) = lazy {
     resources.getDimensionPixelSize(resourcesId)
 }

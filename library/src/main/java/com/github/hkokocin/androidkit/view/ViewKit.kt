@@ -26,7 +26,13 @@ fun View.onDetachedFromWindow(callback: (view: View) -> Unit) = AndroidKit.insta
 @Suppress("UNUSED_PARAMETER")
 fun View.onLayoutChanged(callback: () -> Unit) = AndroidKit.instance.onLayoutChanged(this, callback)
 
+class SnackBarProvider {
+    fun make(view: View, text: CharSequence, duration: Int) = Snackbar.make(view, text, duration)
+}
+
 interface ViewKit {
+
+    val snackBarProvider: SnackBarProvider
 
     fun snackbar(
             view: View,
@@ -34,7 +40,7 @@ interface ViewKit {
             duration: Int = Snackbar.LENGTH_LONG,
             init: Snackbar.() -> Unit = {}
     ) {
-        val snackBar = Snackbar.make(view, message, duration)
+        val snackBar = snackBarProvider.make(view, message, duration)
         snackBar.init()
         snackBar.show()
     }

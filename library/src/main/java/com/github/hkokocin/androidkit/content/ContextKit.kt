@@ -38,8 +38,13 @@ fun Context.alertDialog(init: AlertDialog.Builder.() -> Unit) = AndroidKit.insta
 
 fun Context.toActivity() = AndroidKit.instance.toActivity(this)
 
+class AlertDialogBuilderProvider{
+    fun get(context: Context) = AlertDialog.Builder(context)
+}
 
 interface ContextKit {
+
+    val alertDialogBuilderProvider: AlertDialogBuilderProvider
 
     fun  getWindowManager(context: Context) = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
 
@@ -60,7 +65,7 @@ interface ContextKit {
         }
 
     fun alertDialog(context: Context, init: AlertDialog.Builder.() -> Unit): AlertDialog {
-        val builder = AlertDialog.Builder(context)
+        val builder = alertDialogBuilderProvider.get(context)
         builder.init()
         val dialog = builder.create()
         dialog.show()
