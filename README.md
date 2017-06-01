@@ -153,3 +153,18 @@ editText.afterTextChange{ doSomething(editText.text) }
 
 spinner.itemSelected{ item -> doSomething(item) }
 ```
+## Testing
+This library consists almost exclusively of extension functions which are pretty hard to test since you can not mock them. That is why I introduced the `AndroidKit` class. Each extension function delegates to a function on `AndroidKit` adding the extension functions context (`Context`, `View`, `Activity`, etc) as a parameter.
+`AndroidKit` is a singleton and you can replace its instance in your tests:
+```
+val kit: AndroidKit = mock()
+
+@Before
+fun setUp(){
+    AndroidKit.instance = kit
+}
+```
+Normally it should not be necessary but you can also reset this instance to the default implementation:
+```
+AndroidKit.resetToDefault()
+```
