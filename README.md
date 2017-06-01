@@ -168,3 +168,4 @@ Normally it should not be necessary but you can also reset this instance to the 
 ```
 AndroidKit.resetToDefault()
 ```
+This is not an ideal solution but it works fine. if you know a better approach please let me know. 
