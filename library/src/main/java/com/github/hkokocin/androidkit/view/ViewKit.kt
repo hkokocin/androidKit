@@ -55,16 +55,22 @@ interface ViewKit {
 
     fun onTouch(view: View, listener: (View, MotionEvent) -> Boolean) = view.setOnTouchListener(listener)
 
-    fun onAttachedToWindow(view: View, callback: (view: View) -> Unit) {
-        view.addOnAttachStateChangeListener(AttachStateChangeListener(onAttached = callback))
+    fun onAttachedToWindow(view: View, callback: (view: View) -> Unit): AttachStateChangeListener {
+        val listener = AttachStateChangeListener(onAttached = callback)
+        view.addOnAttachStateChangeListener(listener)
+        return listener
     }
 
-    fun onDetachedFromWindow(view: View, callback: (view: View) -> Unit) {
-        view.addOnAttachStateChangeListener(AttachStateChangeListener(onDetached = callback))
+    fun onDetachedFromWindow(view: View, callback: (view: View) -> Unit): AttachStateChangeListener {
+        val listener = AttachStateChangeListener(onDetached = callback)
+        view.addOnAttachStateChangeListener(listener)
+        return listener
     }
 
     @Suppress("UNUSED_PARAMETER")
-    fun onLayoutChanged(view: View, callback: () -> Unit) {
-        view.addOnLayoutChangeListener { view, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom -> callback() }
+    fun onLayoutChanged(view: View, callback: () -> Unit): View.OnLayoutChangeListener {
+        val listener = View.OnLayoutChangeListener{ view, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom -> callback() }
+        view.addOnLayoutChangeListener(listener)
+        return listener
     }
 }

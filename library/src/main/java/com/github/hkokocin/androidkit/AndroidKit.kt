@@ -22,6 +22,7 @@ class AndroidKit private constructor()
 
     companion object {
         var instance = AndroidKit()
+
         fun resetToDefault() {
             instance = AndroidKit()
         }
