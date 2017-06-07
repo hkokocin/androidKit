@@ -10,6 +10,7 @@ import com.nhaarman.mockito_kotlin.eq
 import com.nhaarman.mockito_kotlin.given
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.then
+import org.junit.After
 import org.junit.Before
 import org.junit.Test
 
@@ -109,6 +110,11 @@ class ViewExtensionsTest {
     @Before
     fun setUp() {
         AndroidKit.instance = kit
+    }
+
+    @After
+    fun tearDown(){
+        AndroidKit.resetToDefault()
     }
 
     @Test

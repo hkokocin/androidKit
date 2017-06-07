@@ -6,6 +6,7 @@ import com.github.hkokocin.androidkit.AndroidKit
 import com.nhaarman.mockito_kotlin.given
 import com.nhaarman.mockito_kotlin.mock
 import com.winterbe.expekt.should
+import org.junit.After
 import org.junit.Before
 import org.junit.Test
 
@@ -48,6 +49,11 @@ class ResourcesExtensionsTest {
     @Before
     fun setUp() {
         AndroidKit.instance = kit
+    }
+
+    @After
+    fun tearDown(){
+        AndroidKit.resetToDefault()
     }
 
     @Test

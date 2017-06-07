@@ -9,6 +9,7 @@ import com.nhaarman.mockito_kotlin.given
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.then
 import com.winterbe.expekt.should
+import org.junit.After
 import org.junit.Before
 import org.junit.Test
 
@@ -30,6 +31,11 @@ internal class FragmentExtensionTest {
     @Before
     fun setUp() {
         AndroidKit.instance = kit
+    }
+
+    @After
+    fun tearDown(){
+        AndroidKit.resetToDefault()
     }
 
     @Test
