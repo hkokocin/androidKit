@@ -68,7 +68,7 @@ internal class FragmentExtensionTest {
 
     @Test
     fun canGetDimension() {
-        given(kit.dimensionInPixels(resources, 1)).willReturn(2)
+        given(resources.getDimensionPixelSize(1)).willReturn(2)
 
         val result by fragment.dimensionInPixels(1)
 
