@@ -18,6 +18,12 @@ class ActivityKitTest {
 
     val intent: Intent = mock()
     val resources: Resources = mock()
+    val kit: AndroidKit = mock()
+
+    @Before
+    fun setUp() {
+        AndroidKit.instance = kit
+    }
 
     val activity: Activity = mock {
         given { it.intent }.willReturn(intent)
@@ -74,7 +80,7 @@ class ActivityKitTest {
 
     @Test
     fun canGetExtra() {
-        given(intent.getStringExtra("name")).willReturn("extra")
+        given(kit.getExtra(intent, "name", String::class)).willReturn("extra")
 
         val extra = classToTest.extra(activity, "name", String::class)
 
@@ -90,7 +96,7 @@ class ActivityKitTest {
 
     @Test
     fun canGetResource() {
-        given(resources.getString(1)).willReturn("string")
+        given(kit.getResource(resources, 1, String::class)).willReturn("string")
 
         val result = classToTest.resource(activity, String::class, 1)
 

@@ -17,6 +17,7 @@ import com.nhaarman.mockito_kotlin.given
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.then
 import com.winterbe.expekt.should
+import org.junit.After
 import org.junit.Before
 import org.junit.Test
 
@@ -138,7 +139,7 @@ class ContextKitTest {
     fun canCastContextToActivity() {
         val context: Context = activity
         
-        context.toActivity().should.be.equal(activity)
+        classToTest.toActivity(context).should.be.equal(activity)
     }
 
     @Test
@@ -147,14 +148,14 @@ class ContextKitTest {
             given { it.baseContext }.willReturn(activity)
         }
 
-        context.toActivity().should.be.equal(activity)
+        classToTest.toActivity(context).should.be.equal(activity)
     }
 
     @Test
     fun fallsBackToNullContextIsNotConnectedToActivity() {
         val context: Context = mock()
 
-        context.toActivity().should.be.`null`
+        classToTest.toActivity(context).should.be.`null`
     }
 }
 
@@ -166,6 +167,11 @@ class ContextExtensionsTest{
     @Before
     fun setUp() {
         AndroidKit.instance = kit
+    }
+
+    @After
+    fun tearDown(){
+        AndroidKit.resetToDefault()
     }
 
     @Test
