@@ -6,10 +6,17 @@ import com.github.hkokocin.androidkit.AndroidKit
 
 fun <T> Spinner.onItemSelected(callback: (item: T) -> Unit) = AndroidKit.instance.onItemSelected(this, callback)
 
-fun EditText.onAfterTextChanged(callback: (String) -> Unit) = AndroidKit.instance.onAfterTextChanged(this, callback)
+fun EditText.afterTextChanged(callback: (String) -> Unit) = AndroidKit.instance.afterTextChanged(this, callback)
+
+fun EditText.beforeTextChanged(callback: (CharSequence, Int, Int, Int) -> Unit)
+        = AndroidKit.instance.beforeTextChanged(this, callback)
+
+fun EditText.onTextChanged(callback: (CharSequence, Int, Int, Int) -> Unit)
+        = AndroidKit.instance.onTextChanged(this, callback)
 
 interface WidgetKit {
-    fun onAfterTextChanged(editText: EditText, callback: (String) -> Unit) {
+
+    fun afterTextChanged(editText: EditText, callback: (String) -> Unit) {
         editText.addTextChangedListener(TextChangeListener(afterChanged = { callback(it) }))
     }
 

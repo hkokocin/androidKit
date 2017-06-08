@@ -67,9 +67,8 @@ interface ViewKit {
         return listener
     }
 
-    @Suppress("UNUSED_PARAMETER")
     fun onLayoutChanged(view: View, callback: () -> Unit): View.OnLayoutChangeListener {
-        val listener = View.OnLayoutChangeListener{ view, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom -> callback() }
+        val listener = View.OnLayoutChangeListener{ _, _, _, _, _, _, _, _, _ -> callback() }
         view.addOnLayoutChangeListener(listener)
         return listener
     }
