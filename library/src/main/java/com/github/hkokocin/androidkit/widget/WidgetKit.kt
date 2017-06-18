@@ -1,5 +1,6 @@
 package com.github.hkokocin.androidkit.widget
 
+import android.support.v4.view.ViewPager
 import android.widget.EditText
 import android.widget.Spinner
 import com.github.hkokocin.androidkit.AndroidKit
@@ -13,6 +14,15 @@ fun EditText.beforeTextChanged(callback: (CharSequence, Int, Int, Int) -> Unit)
 
 fun EditText.onTextChanged(callback: (CharSequence, Int, Int, Int) -> Unit)
         = AndroidKit.instance.onTextChanged(this, callback)
+
+fun ViewPager.onPageSelected(callback: (Int) -> Unit)
+        = AndroidKit.instance.onPageSelected(this, callback)
+
+fun ViewPager.onScrollStateChanged(callback: (Int) -> Unit)
+        = AndroidKit.instance.onScrollStateChanged(this, callback)
+
+fun ViewPager.onPageScrolled(callback: (Int, Float, Int) -> Unit)
+        = AndroidKit.instance.onPageScrolled(this, callback)
 
 interface WidgetKit {
 
@@ -40,5 +50,23 @@ interface WidgetKit {
 
     fun <T> onItemSelected(spinner: Spinner, callback: (item: T) -> Unit) {
         spinner.onItemSelectedListener = ItemSelectedListener(spinner, callback)
+    }
+
+    fun onPageSelected(viewPager: ViewPager, callback: (Int) -> Unit): PageChangedListener {
+        val pageChangedListener = PageChangedListener(callback)
+        viewPager.addOnPageChangeListener(pageChangedListener)
+        return pageChangedListener
+    }
+
+    fun onScrollStateChanged(viewPager: ViewPager, callback: (Int) -> Unit): PageChangedListener {
+        val pageChangedListener = PageChangedListener(onPageScrollStateChanged = callback)
+        viewPager.addOnPageChangeListener(pageChangedListener)
+        return pageChangedListener
+    }
+
+    fun onPageScrolled(viewPager: ViewPager, callback: (Int, Float, Int) -> Unit): PageChangedListener {
+        val pageChangedListener = PageChangedListener(onPageScrolled = callback)
+        viewPager.addOnPageChangeListener(pageChangedListener)
+        return pageChangedListener
     }
 }
