@@ -21,7 +21,7 @@ repositories{
 }
 
 dependencies{
-    compile ('com.github.hkokocin.atheris:AndroidKit:0.4-SNAPSHOT') { changing = true }
+    compile ('com.github.hkokocin.atheris:AndroidKit:0.5-SNAPSHOT') { changing = true }
 }
 ```
 
