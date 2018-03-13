@@ -77,7 +77,7 @@ class ActivityKitTest {
     @Test
     fun canRetrieveViews() {
         val view = mock<View>()
-        given(activity.findViewById(1)).willReturn(view)
+        given(activity.findViewById<View>(1)).willReturn(view)
 
         val result = classToTest.viewById<View>(activity, 1)
 
